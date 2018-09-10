@@ -4,6 +4,7 @@
 
 # added modules
 - brotli compression (https://github.com/google/ngx_brotli)
+- TODO: consider switching this to: https://github.com/eustas/ngx_brotli
 - auth jwt (https://github.com/r-chris/ngx_http_auth_jwt_module)
 
 
@@ -38,3 +39,5 @@ vim nginx.conf
     brotli_static on;
     brotli_types text/plain text/css application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript image/x-icon image/vnd.microsoft.icon image/bmp image/svg+xml;
 ```
+
+maybe move this into: `include /etc/nginx/conf.d/*.conf;`
