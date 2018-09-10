@@ -18,5 +18,5 @@ RUN apt update && \
     sed -i 's$ --group=nginx $ --group=nginx --add-module=/usr/local/src/ngx_brotli --add-module=/usr/local/src/ngx_http_auth_jwt_module $g' debian/rules
     dpkg-buildpackage -b -uc -us && \
     cd /usr/local/src/ && \
-    sudo dpkg -i nginx_*.deb && \
+    dpkg -i nginx_*.deb && \
     cd /etc/nginx/
