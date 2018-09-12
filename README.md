@@ -5,8 +5,17 @@
 # added modules
 - brotli compression (https://github.com/google/ngx_brotli)
 - TODO: consider switching this to: https://github.com/eustas/ngx_brotli
-- auth jwt (https://github.com/r-chris/ngx_http_auth_jwt_module)
-
+- auth jwt Option1: (https://github.com/r-chris/ngx_http_auth_jwt_module)
+  - very close to the NGINX pro version in terms of config
+  - we had problems getting this one working
+- auth jwt Option2: (https://github.com/r-chris/nginx-jwt-module)
+  - looks slim and well done (trying this one now)
+- auth jwt Option3: (https://github.com/r-chris/ngx-http-auth-jwt-module)
+  - in it's current form it comes with auto-redirect (to a login page)
+  - fork with "simplification" PR: https://github.com/maxx-t/ngx-http-auth-jwt-module
+  - the fork actually removes that and suggests to just use nginx error_codes for that
+- auth jwt Option4: (https://github.com/ch1bo/nginx-jwt)
+  - no documentation
 
 # the manual nginx compile way
 ```
