@@ -14,9 +14,12 @@ RUN apt update && \
     apt build-dep nginx -y && \
     git clone --recursive https://github.com/google/ngx_brotli.git && \
     git clone --recursive https://github.com/r-chris/nginx-jwt-module.git && \
-    cd /usr/local/src/nginx-*
-    sed -i 's$ --group=nginx $ --group=nginx --add-module=/usr/local/src/ngx_brotli --add-module=/usr/local/src/nginx-jwt-module $g' debian/rules
+    cd /usr/local/src/nginx-1* && \
+    sed -i 's$ --group=nginx $ --group=nginx --add-module=/usr/local/src/ngx_brotli --add-module=/usr/local/src/nginx-jwt-module $g' debian/rules && \
     dpkg-buildpackage -b -uc -us && \
     cd /usr/local/src/ && \
     dpkg -i nginx_*.deb && \
+    mkdir nginx_1.14.0_bionic_deb && \
+    cp nginx_*.deb nginx_*.buildinfo nginx_*.changes nginx_1.14.0_bionic_deb/ && \
+    tar cvzf nginx_1.14.0_bionic_deb.tar.gz nginx_1.14.0_bionic_deb/ && \
     cd /etc/nginx/
